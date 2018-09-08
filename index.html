@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <script>
+
+    function canvasApp(){
+      console.log('Hello World')
+      var canvas = document.getElementById('canvas')
+      var ctx = canvas.getContext('2d')
+      ctx.fillRect(25, 25, 100, 100);
+    }
+
+    window.onload = function()
+       {
+          canvasApp();
+       }
+
+
+    </script>
+  </head>
+  <body>
+    <h1> Hello, World! </h1>
+    <canvas width="800" height="600" id="canvas">
+
+    </canvas>
+  </body>
+</html>

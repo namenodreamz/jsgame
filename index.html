@@ -1,7 +1,21 @@
 <!DOCTYPE HTML>
 <html>
+  <meta charset = "utf-8">
   <head>
     <script>
+    class Point {
+      constructor(x,y) {
+        this.x = x;
+        this.y = y;
+      }
+      toString(){
+        return '(' + this.x + ', ' + this.y + ')';
+      }
+    }
+
+    var point = new Point(5,10);
+    console.log(point.toString());
+    console.dir(point);
 
     function canvasApp(){
       console.log('Hello World')

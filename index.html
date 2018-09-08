@@ -3,6 +3,9 @@
   <meta charset = "utf-8">
   <head>
     <script>
+
+    let canvas = null
+    let ctx = null
     class Point {
       constructor(x,y) {
         this.x = x;
@@ -11,43 +14,54 @@
       toString(){
         return '(' + this.x + ', ' + this.y + ')';
       }
+      getX() {
+        return this.x;
+      }
+      getY(){
+        return this.y;
+      }
+      move(x, y){
+        this.x = x;
+        this.y = y;
+      }
     }
 
     var point = new Point(5,10);
     console.log(point.toString());
     console.dir(point);
 
-    function canvasApp(){
-      console.log('Hello World')
-      var canvas = document.getElementById('canvas')
-      var ctx = canvas.getContext('2d')
-      //ctx.fillRect(25, 25, 100, 100);
-      ctx.beginPath();
-      ctx.moveTo(0,0);
-      ctx.lineTo(0,600);
-      ctx.lineTo(800,600);
-      ctx.lineTo(800,0);
-      ctx.closePath();
-      ctx.stroke();
-
-      ctx.beginPath();
-      ctx.moveTo(50,50);
-      ctx.lineTo(100,0);
-      ctx.stroke();
-
-      ctx.fillRect(300,300,100,200)
+    window.onload = function(){
+      init();
     }
 
-    window.onload = function()
-       {
-          canvasApp();
-       }
+    function init(){
+      canvas = document.getElementById('canvas')
+      ctx = canvas.getContext('2d')
+      window.requestAnimationFrame(animate)
+    }
 
+    function animate() {
+      update()
+      clearScreen()
+      draw()
+      window.requestAnimationFrame(animate)
+    }
+    function draw() {
+      ctx.fillStyle = '#000000'
+      ctx.fillRect(point.getX(), point.getY(), 10, 10)
+    }
+    function update() {
+      point.move(point.getX()+10, point.getY())
+    }
+    function clearScreen(){
+      ctx.fillStyle = '#FFFFFF'
+      ctx.fillRect(0,0,800,600)
+    }
 
     </script>
   </head>
   <body>
-    <h1> Hello, World! </h1>
+    <h1> Snake! </h1>
     <canvas width="800" height="600" id="canvas">
 
     </canvas>

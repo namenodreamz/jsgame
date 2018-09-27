@@ -1,4 +1,4 @@
-export class Vector2d {
+class Vector2d {
   constructor(x, y) {
     this.height = height;
     this.width = width;
@@ -29,9 +29,7 @@ export class Vector2d {
   }
 }
 
-module.exports = Vector2d;
-
-export class Point {
+class Point {
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -51,4 +49,4 @@ export class Point {
   }
 }
 
-module.exports = Point;
+export { Vector2d, Point };

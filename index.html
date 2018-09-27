@@ -6,26 +6,7 @@
 
     <script type="module">
     import {Vector2d, Point} from './math.js'
-
-    let keysPressed = []
-
-    keysPressed[37] = false
-    keysPressed[38] = false
-    keysPressed[39] = false
-    keysPressed[40] = false
-
-
-    document.addEventListener('keydown', (event) => {
-      console.log(event)
-      keysPressed[event.keyCode] = true
-    })
-
-    document.addEventListener('keyup', (event) => {
-      console.log(event)
-      keysPressed[event.keyCode] = false
-    })
-
-
+    import {keysPressed} from './events.js'
 
 
     let canvas = null;

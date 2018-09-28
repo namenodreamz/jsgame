@@ -13,9 +13,9 @@
     let canvas = null;
     let ctx = null;
 
-    var point = new Point(5,10);
-    console.log(point.toString());
-    console.dir(point);
+    var pos = new Vector2d(5,10);
+    var speed = new Vector2d(10,10)
+
 
     window.onload = function(){
       init();
@@ -28,7 +28,7 @@
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
       window.requestAnimationFrame(animate)
-
+    }
 
 
     function animate() {
@@ -38,22 +38,33 @@
       window.requestAnimationFrame(animate)
     }
     function draw() {
-      ctx.fillStyle = '#000000'
-      ctx.fillRect(point.getX(), point.getY(), 10, 10)
+      //draw snake
+
+
+      //clear Screen
+      ctx.fillStyle = '#FFFFFF'
+      ctx.fillRect(pos.x, pos.y, 10, 10)
     }
     function update() {
 
+      const v = new Vector2d(4,4)
+      const vn = v.norm()
+
+
+
+      //TODO write with vectors
+
       if(keysPressed[37]) //LEFT
-        point.x -= 10
+        pos.x -= 10
       if(keysPressed[38]) //UP
-        point.y -= 10
+        pos.y -= 10
       if(keysPressed[39]) //RIGHT
-          point.x += 10
+        pos.x += 10
       if(keysPressed[40]) //DOWN
-          point.y += 10
+        pos.y += 10
     }
     function clearScreen(){
-      ctx.fillStyle = '#FFFFFF'
+      ctx.fillStyle = '#81969A'
       ctx.fillRect(0,0,canvas.width,canvas.height)
     }
 

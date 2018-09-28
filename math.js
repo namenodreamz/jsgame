@@ -4,14 +4,6 @@ class Vector2d {
     this.y = y;
   }
 
-  add(another) {
-    return new Vector2d();
-  }
-
-  get x() {
-    return this.x;
-  }
-
   /*
    * Vector Addition with another Vector
    * @return Returns another Vector
@@ -20,9 +12,23 @@ class Vector2d {
     return new Vector2d(this.x + another.x, this.y + another.y);
   }
 
-  mul(another) {}
+  sub(another) {
+    return new Vector2d(this.x - another.x, this.y - another.y);
+  }
 
-  length() {}
+  scale(scalar) {
+    return new Vector2d(this.x * scalar, this.y * scalar);
+  }
+
+  norm() {
+    const normLength = 1 / this.length();
+    const normVector = this.scale(normLength);
+    return normVector;
+  }
+
+  length() {
+    return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
 
   get toString() {
     return `[${x},${y}]`;

@@ -1,11 +1,16 @@
 class Snake {
-  constructor(x, y, length, speed) {
-    this.body = [];
+  constructor(startPosition, direction, speed) {
+    this.position = startPosition;
+    this.direction = direction;
     this.speed = speed;
+    this.body = [];
+    body.push(position);
   }
 
-  update() {
-    //update snake in Array
+  update(direction) {}
+
+  getBody() {
+    return this.body;
   }
 }
 

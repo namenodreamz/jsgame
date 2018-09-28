@@ -1,7 +1,7 @@
 class Vector2d {
   constructor(x, y) {
-    this.height = height;
-    this.width = width;
+    this.x = x;
+    this.y = y;
   }
 
   add(another) {

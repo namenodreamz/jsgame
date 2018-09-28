@@ -7,6 +7,7 @@
     <script type="module">
     import {Vector2d, Point} from './math.js'
     import {keysPressed} from './events.js'
+    import {Snake} from './Snake.js'
 
 
     let canvas = null;
@@ -23,6 +24,9 @@
     function init(){
       canvas = document.getElementById('canvas')
       ctx = canvas.getContext('2d')
+      //Set Screen fullscreen
+      canvas.width = document.body.clientWidth;
+      canvas.height = document.body.clientHeight;
       window.requestAnimationFrame(animate)
     }
 
@@ -49,7 +53,7 @@
     }
     function clearScreen(){
       ctx.fillStyle = '#FFFFFF'
-      ctx.fillRect(0,0,800,600)
+      ctx.fillRect(0,0,canvas.width,canvas.height)
     }
 
     </script>

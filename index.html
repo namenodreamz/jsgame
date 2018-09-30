@@ -17,6 +17,12 @@
     var pos = new Vector2d(5,10);
     var speed = new Vector2d(10,10)
 
+    var oldTime = new Date().getTime();
+    var newTime = null
+
+    let FPS = 0
+    let frameCount = 0
+
 
     window.onload = function(){
       init();
@@ -41,11 +47,34 @@
     function draw() {
 
 
-      //clear Screen
+      //Draw Snake
       ctx.fillStyle = '#FFFFFF'
       ctx.fillRect(pos.x, pos.y, 10, 10)
+
+      //draw fps
+      ctx.fillStyle = "black"
+      ctx.font = 'italic 20pt arial';
+      ctx.fillText('FPS: ' + FPS ,20,20)
+
     }
+
+
     function update() {
+
+      newTime = new Date().getTime();
+
+      if(newTime - oldTime  >= 1000){
+        oldTime = newTime
+        FPS = frameCount;
+        frameCount = 0
+        console.log(FPS)
+
+      }
+      else{
+        frameCount++
+      }
+
+
 
       const v = new Vector2d(4,4)
       const vn = v.norm()

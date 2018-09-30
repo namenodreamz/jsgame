@@ -1,0 +1,65 @@
+<DOCTYPE html>
+<html>
+  <meta charset = "utf-8">
+  <head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script type="module">
+
+    import {Vector2d} from './math.js'
+    import {mouseMoved} from './events.js'
+
+    let canvas = null;
+    let ctx = null;
+
+    var pos = new Vector2d(10,10)
+
+      window.onload = function() {
+        canvas = document.getElementById('canvas')
+        ctx = canvas.getContext('2d')
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        window.requestAnimationFrame(animate)
+      }
+
+
+      function animate(){
+        update()
+        clearScreen();
+        draw()
+        window.requestAnimationFrame(animate)
+      }
+
+
+      function update(){
+        pos.x = mouseMoved.x
+        pos.y = mouseMoved.y
+
+      }
+
+      function clearScreen(){
+        ctx.clearRect(0,0,canvas.width, canvas.height)
+      }
+
+      function draw(){
+
+        //Draw Line
+        ctx.beginPath()
+        ctx.moveTo(0,0)
+        ctx.lineTo(pos.x, pos.y)
+        ctx.strokeStyle = '#ff0000';
+        ctx.stroke()
+
+        //Draw Position
+        ctx.fillStyle = "black"
+        ctx.fillText(pos.length() ,pos.x,pos.y)
+      }
+
+
+    </script>
+
+  </head>
+  <body>
+    <canvas width="800" height="600" id= "canvas">
+    </canvas>
+  </body>
+</html>

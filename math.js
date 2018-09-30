@@ -12,22 +12,46 @@ class Vector2d {
     return new Vector2d(this.x + another.x, this.y + another.y);
   }
 
+  /*
+   * Vector Subtraction with another Vector
+   * @return Returns another Vector
+   */
   sub(another) {
     return new Vector2d(this.x - another.x, this.y - another.y);
   }
 
+  /*
+   * Scales a Vector
+   * @return Returns the scaled vector
+   */
   scale(scalar) {
     return new Vector2d(this.x * scalar, this.y * scalar);
   }
 
+  /*
+   * Normalises the Vector
+   * @return Returns a Vector with same Direction but length 1
+   */
   norm() {
     const normLength = 1 / this.length();
     const normVector = this.scale(normLength);
     return normVector;
   }
 
+  /*
+   *@return Returns the length of the Vector
+   * TODO not ready
+   */
   length() {
     return Math.sqrt(this.x * this.x + this.y * this.y);
+  }
+
+  /*
+   * Calculates the Scalar poruct (inner product)
+   *
+   */
+  scalarproduct(another) {
+    return new Vector(this.x * another.x + this.y * another.this.y);
   }
 
   get toString() {
@@ -35,24 +59,4 @@ class Vector2d {
   }
 }
 
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-  toString() {
-    return "(" + this.x + ", " + this.y + ")";
-  }
-  getX() {
-    return this.x;
-  }
-  getY() {
-    return this.y;
-  }
-  move(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-}
-
-export { Vector2d, Point };
+export { Vector2d };
